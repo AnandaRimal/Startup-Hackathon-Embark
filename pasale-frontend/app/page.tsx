@@ -147,7 +147,7 @@ export default function LandingPage() {
                 </span>
               </h2>
               <p className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-                Pasale connects directly to your shop's internal sales database and analyzes every transaction using AI.{" "}
+                पसले connects directly to your shop's internal sales database and analyzes every transaction using AI.{" "}
                 <span className="font-semibold text-gray-900">No files, no Excel, no POS uploads.</span>
               </p>
             </div>
@@ -274,7 +274,7 @@ export default function LandingPage() {
                 <span className="text-sm font-semibold text-indigo-700">Simple Process</span>
               </motion.div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                How Pasale Works
+                How पसले Works
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
                 Three simple steps to transform your retail business
@@ -284,7 +284,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
               {/* Connection Lines */}
               <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-indigo-200 to-purple-200" style={{ width: 'calc(100% - 6rem)', left: '3rem' }} />
-              
+
               <HowItWorksCard
                 step="1"
                 title="Your POS data stays internal"
@@ -295,7 +295,7 @@ export default function LandingPage() {
               />
               <HowItWorksCard
                 step="2"
-                title="Pasale analyzes everything"
+                title="पसले analyzes everything"
                 description="AI models read your sales patterns, pricing history, and category behavior in real-time."
                 icon={<Brain className="h-10 w-10" />}
                 gradient="from-indigo-500 to-purple-600"
@@ -426,12 +426,12 @@ export default function LandingPage() {
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
                 Loved by Retailers Across Nepal
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">See how Pasale is transforming retail businesses</p>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">See how पसले is transforming retail businesses</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <TestimonialCard
-                quote="Pasale helped us predict stock-outs before they happened."
+                quote="पसले helped us predict stock-outs before they happened."
                 author="Madan Grocery"
                 location="Kathmandu"
               />
@@ -456,7 +456,7 @@ export default function LandingPage() {
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-            
+
             <div className="relative z-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -468,12 +468,12 @@ export default function LandingPage() {
                 <Sparkles className="h-4 w-4 text-white" />
                 <span className="text-sm font-semibold text-white">Start Free Today</span>
               </motion.div>
-              
+
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Ready to Grow Your Shop<br />with AI?
               </h2>
               <p className="text-lg lg:text-xl text-blue-100 mb-10 max-w-2xl mx-auto font-light">
-                No data uploads. Pasale uses your existing internal database.<br />
+                No data uploads. पसले uses your existing internal database.<br />
                 <span className="font-semibold text-white">Get started in under 5 minutes.</span>
               </p>
               <Link href="/dashboard">
@@ -512,7 +512,7 @@ export default function LandingPage() {
                 </Link>
               </div>
             </div>
-            
+
             {/* Links */}
             <div>
               <h4 className="font-bold text-gray-900 mb-4 text-base">Product</h4>
@@ -522,7 +522,7 @@ export default function LandingPage() {
                 <li><Link href="/dashboard" className="text-base text-gray-600 hover:text-gray-900 transition-colors">Dashboard</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-bold text-gray-900 mb-4 text-base">Company</h4>
               <ul className="space-y-3">
@@ -532,11 +532,11 @@ export default function LandingPage() {
               </ul>
             </div>
           </div>
-          
+
           <div className="pt-8 border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-base text-gray-600">
-                © 2024 Pasale Inc. All rights reserved.
+                © 2024 पसले Inc. All rights reserved.
               </p>
               <div className="flex gap-6 text-base">
                 <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Privacy</Link>
@@ -565,7 +565,7 @@ function FeatureCard({ icon, title, desc, gradient }: { icon: React.ReactNode, t
       </div>
       <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
       <p className="text-gray-600 leading-relaxed">{desc}</p>
-      
+
       {/* Hover Effect */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/0 to-indigo-50/0 group-hover:from-blue-50/50 group-hover:to-indigo-50/30 transition-all duration-300 pointer-events-none" />
     </motion.div>
@@ -612,11 +612,10 @@ function PricingCard({ tier, price, period, badge, tagline, features, ctaText, c
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className={`relative p-8 lg:p-10 rounded-3xl bg-white border-2 shadow-lg hover:shadow-2xl transition-all duration-300 ${
-        popular 
-          ? 'border-indigo-500 ring-4 ring-indigo-100 scale-105 lg:scale-110' 
-          : 'border-gray-200 hover:border-gray-300'
-      }`}
+      className={`relative p-8 lg:p-10 rounded-3xl bg-white border-2 shadow-lg hover:shadow-2xl transition-all duration-300 ${popular
+        ? 'border-indigo-500 ring-4 ring-indigo-100 scale-105 lg:scale-110'
+        : 'border-gray-200 hover:border-gray-300'
+        }`}
     >
       {popular && (
         <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
@@ -650,11 +649,10 @@ function PricingCard({ tier, price, period, badge, tagline, features, ctaText, c
         ))}
       </ul>
       <Link href={ctaLink}>
-        <Button className={`w-full rounded-full h-12 font-semibold transition-all duration-300 ${
-          popular 
-            ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-500/30' 
-            : 'bg-gray-900 hover:bg-gray-800'
-        }`}>
+        <Button className={`w-full rounded-full h-12 font-semibold transition-all duration-300 ${popular
+          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-500/30'
+          : 'bg-gray-900 hover:bg-gray-800'
+          }`}>
           {ctaText}
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>

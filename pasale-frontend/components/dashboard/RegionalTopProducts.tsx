@@ -1,59 +1,57 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { NEPAL_DISTRICTS, getDistrictTopProducts } from '@/utils/mockData';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, TrendingUp } from 'lucide-react';
 
 export function RegionalTopProducts() {
     const [selectedDistrict, setSelectedDistrict] = useState<string>("Kathmandu");
     const topProducts = getDistrictTopProducts(selectedDistrict);
 
     return (
-        <Card className="glass-card col-span-4 h-full">
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <div>
-                    <CardTitle className="text-xl font-bold flex items-center gap-2">
-                        <MapPin className="h-5 w-5 text-primary" />
-                        Regional Market Analysis
-                    </CardTitle>
-                    <CardDescription>Top selling products by district</CardDescription>
-                </div>
-                <div className="w-[180px]">
-                    <Select value={selectedDistrict} onValueChange={setSelectedDistrict}>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Select District" />
-                        </SelectTrigger>
-                        <SelectContent className="max-h-[300px]">
-                            {NEPAL_DISTRICTS.map((district) => (
-                                <SelectItem key={district} value={district}>
-                                    {district}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
+        <Card className="bg-white border-slate-200 h-full">
+            <CardHeader className="border-b border-slate-100 pb-4">
+                <div className="flex items-center justify-between">
+                    <div>
+                        <CardTitle className="text-lg font-semibold text-slate-900">Regional Market Analysis</CardTitle>
+                        <p className="text-sm text-slate-600 mt-1">Top selling products by district</p>
+                    </div>
+                    <div className="w-[180px]">
+                        <Select value={selectedDistrict} onValueChange={setSelectedDistrict}>
+                            <SelectTrigger className="h-9 text-sm">
+                                <SelectValue placeholder="Select District" />
+                            </SelectTrigger>
+                            <SelectContent className="max-h-[300px]">
+                                {NEPAL_DISTRICTS.map((district) => (
+                                    <SelectItem key={district} value={district}>
+                                        {district}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
                 </div>
             </CardHeader>
-            <CardContent>
-                <div className="space-y-4 mt-2">
+            <CardContent className="pt-6">
+                <div className="space-y-3">
                     {topProducts.map((product, index) => (
-                        <div key={product.id} className="flex items-center justify-between p-3 rounded-lg bg-white/40 border border-white/50 hover:bg-white/60 transition-colors">
-                            <div className="flex items-center gap-3">
-                                <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-xs">
-                                    #{index + 1}
+                        <div
+                            key={product.id}
+                            className="flex items-center justify-between p-4 rounded-lg bg-slate-50 border border-slate-200 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all duration-200"
+                        >
+                            <div className="flex items-center gap-4 flex-1">
+                                <div className="w-8 h-8 rounded bg-white border border-slate-200 flex items-center justify-center text-sm font-bold text-slate-700 flex-shrink-0">
+                                    {index + 1}
                                 </div>
-                                <div>
-                                    <p className="font-semibold text-slate-800">{product.name}</p>
-                                    <p className="text-xs text-muted-foreground">{product.category}</p>
+                                <div className="flex-1 min-w-0">
+                                    <div className="font-semibold text-slate-900 text-base truncate">{product.name}</div>
+                                    <div className="text-sm text-slate-600 mt-0.5">{product.category}</div>
                                 </div>
                             </div>
-                            <div className="text-right">
-                                <p className="font-bold text-slate-900">{product.sales.toLocaleString()} sold</p>
-                                <p className="text-xs text-green-600 flex items-center justify-end gap-1">
-                                    <TrendingUp className="h-3 w-3" />
-                                    Demand High
-                                </p>
+                            <div className="text-right ml-4">
+                                <div className="font-bold text-slate-900 text-base">{product.sales.toLocaleString()}</div>
+                                <div className="text-sm text-slate-600">units sold</div>
                             </div>
                         </div>
                     ))}

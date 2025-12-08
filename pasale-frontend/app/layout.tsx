@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pasale | AI Business Insights",
+  title: "पसले | AI Business Insights",
   description: "Retail predictions and business analytics platform.",
 };
 

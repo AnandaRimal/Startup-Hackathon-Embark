@@ -2,11 +2,10 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { TOP_PRODUCTS } from '@/utils/mockData';
-import { Search, Filter, ShoppingBag } from 'lucide-react';
 
 export default function ProductsPage() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -28,77 +27,81 @@ export default function ProductsPage() {
     }, [searchTerm, selectedCategory]);
 
     return (
-        <div className="p-8 space-y-8 animate-in fade-in duration-500">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-slate-900">Products Catalog</h1>
-                    <p className="text-muted-foreground">Manage and analyze your inventory performance</p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                    <div className="relative w-full sm:w-[300px]">
-                        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                        <Input
-                            placeholder="Search products..."
-                            className="pl-10 bg-white"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                    </div>
-                    <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                        <SelectTrigger className="w-full sm:w-[180px] bg-white">
-                            <Filter className="w-4 h-4 mr-2" />
-                            <SelectValue placeholder="Category" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {categories.map(category => (
-                                <SelectItem key={category} value={category}>{category}</SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
-                </div>
-            </div>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+            <div className="max-w-[1600px] mx-auto p-6 lg:p-8 space-y-6">
 
-            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {filteredProducts.map((product) => (
-                    <Link href={`/products/${product.id}`} key={product.id}>
-                        <Card className="glass-card h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group">
-                            <CardHeader className="pb-2">
-                                <div className="flex justify-between items-start">
-                                    <div className="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
-                                        <ShoppingBag className="h-5 w-5 text-indigo-600" />
-                                    </div>
-                                </div>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="space-y-1 mb-2">
-                                    <h3 className="font-semibold text-lg text-slate-900 truncate" title={product.name}>{product.name}</h3>
-                                    <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{product.category}</p>
-                                </div>
-                                <div className="flex items-end justify-between mt-4">
-                                    <div>
-                                        <p className="text-xs text-muted-foreground">Price</p>
-                                        <p className="font-bold text-lg text-slate-900">${product.price}</p>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className="text-xs text-muted-foreground">Sales</p>
-                                        <p className="font-medium text-slate-700">{product.sales}</p>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </Link>
-                ))}
-            </div>
-
-            {filteredProducts.length === 0 && (
-                <div className="text-center py-20">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 mb-4">
-                        <Search className="h-8 w-8 text-slate-400" />
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h1 className="text-3xl font-bold text-slate-900">Products Catalog</h1>
+                        <p className="text-base text-slate-600 mt-1">Manage and analyze your inventory performance</p>
                     </div>
-                    <h3 className="text-lg font-medium text-slate-900">No products found</h3>
-                    <p className="text-muted-foreground">Try adjusting your search or filters.</p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <div className="relative w-full sm:w-[300px]">
+                            <Input
+                                placeholder="Search products..."
+                                className="bg-white h-11 text-base"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </div>
+                        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                            <SelectTrigger className="w-full sm:w-[180px] bg-white h-11 text-base">
+                                <SelectValue placeholder="Category" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {categories.map(category => (
+                                    <SelectItem key={category} value={category}>{category}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    </div>
                 </div>
-            )}
+
+                {/* Products Grid */}
+                <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {filteredProducts.map((product) => (
+                        <Link href={`/products/${product.id}`} key={product.id}>
+                            <Card className="bg-white border-slate-200 h-full hover:shadow-lg hover:border-slate-300 transition-all duration-200 cursor-pointer">
+                                <CardHeader className="pb-3">
+                                    <div className="flex justify-between items-start">
+                                        <div className="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center">
+                                            <span className="text-2xl font-bold text-indigo-600">{product.name.charAt(0)}</span>
+                                        </div>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="space-y-1 mb-3">
+                                        <h3 className="font-semibold text-base text-slate-900 line-clamp-2" title={product.name}>{product.name}</h3>
+                                        <p className="text-sm text-slate-600 font-medium uppercase tracking-wide">{product.category}</p>
+                                    </div>
+                                    <div className="flex items-end justify-between mt-4 pt-4 border-t border-slate-100">
+                                        <div>
+                                            <p className="text-sm text-slate-600">Price</p>
+                                            <p className="font-bold text-lg text-slate-900">NPR {product.price}</p>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className="text-sm text-slate-600">Sales</p>
+                                            <p className="font-semibold text-base text-slate-700">{product.sales.toLocaleString()}</p>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </Link>
+                    ))}
+                </div>
+
+                {/* No Results */}
+                {filteredProducts.length === 0 && (
+                    <div className="text-center py-20">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 mb-4">
+                            <span className="text-3xl">🔍</span>
+                        </div>
+                        <h3 className="text-lg font-semibold text-slate-900">No products found</h3>
+                        <p className="text-base text-slate-600 mt-1">Try adjusting your search or filters</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

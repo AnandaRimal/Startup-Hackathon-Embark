@@ -9,7 +9,7 @@ export function Topbar() {
             <div className="flex-1 flex items-center justify-center relative z-10">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold tracking-wide">
-                        <span className="text-slate-800">Pasale </span>
+                        <span className="text-slate-800">पसले </span>
                         <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Business </span>
                         <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Insight</span>
                     </h1>
@@ -27,7 +27,7 @@ export function Topbar() {
                 <div className="flex items-center gap-4 bg-white/60 backdrop-blur-md rounded-2xl px-5 py-3 shadow-lg border border-white/60">
                     <div className="text-right">
                         <p className="text-sm font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">Ananda Rimal</p>
-                        <p className="text-xs text-indigo-600 font-semibold">Pasale Insight</p>
+                        <p className="text-xs text-indigo-600 font-semibold">पसले Insight</p>
                     </div>
                     <div className="h-10 w-10 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 shadow-lg flex items-center justify-center text-white font-bold text-sm ring-2 ring-white">
                         AR

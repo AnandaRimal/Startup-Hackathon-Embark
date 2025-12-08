@@ -143,8 +143,20 @@ export const NEPAL_DISTRICTS = [
 ];
 
 export const getDistrictTopProducts = (districtName: string) => {
-    const seed = districtName.length;
-    const shuffled = [...TOP_PRODUCTS].sort(() => 0.5 - Math.random());
+    // Simple seeded random function for consistent server/client rendering
+    const seededRandom = (seed: number) => {
+        const x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
+    };
+
+    const seed = districtName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+
+    // Create a deterministic shuffle based on district name
+    const shuffled = [...TOP_PRODUCTS].sort((a, b) => {
+        const seedA = seededRandom(seed + a.id);
+        const seedB = seededRandom(seed + b.id);
+        return seedA - seedB;
+    });
 
     return shuffled.slice(0, 4).map(p => ({
         ...p,
