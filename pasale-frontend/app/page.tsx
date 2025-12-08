@@ -19,8 +19,8 @@ export default function LandingPage() {
           <span className="text-2xl font-bold tracking-tight text-foreground">Pasale</span>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Log in</Link>
-          <Link href="/dashboard">
+          <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Log in</Link>
+          <Link href="/login">
             <Button className="rounded-full shadow-lg hover:shadow-primary/20 transition-all">Get Started</Button>
           </Link>
         </div>
@@ -49,7 +49,7 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link href="/dashboard">
+            <Link href="/login">
               <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-xl shadow-blue-500/20 hover:scale-105 transition-transform">
                 Start Predicting Now <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

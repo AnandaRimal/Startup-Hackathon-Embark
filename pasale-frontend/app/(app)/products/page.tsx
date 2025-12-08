@@ -67,10 +67,6 @@ export default function ProductsPage() {
                                     <div className="p-2 bg-indigo-50 rounded-lg group-hover:bg-indigo-100 transition-colors">
                                         <ShoppingBag className="h-5 w-5 text-indigo-600" />
                                     </div>
-                                    <span className={`px-2 py-1 rounded-full text-[10px] font-semibold tracking-wide uppercase ${product.stock < 50 ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
-                                        }`}>
-                                        {product.stock < 50 ? 'Low Stock' : 'In Stock'}
-                                    </span>
                                 </div>
                             </CardHeader>
                             <CardContent>

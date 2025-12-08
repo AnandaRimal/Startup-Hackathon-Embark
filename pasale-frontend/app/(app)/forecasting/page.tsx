@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TOP_PRODUCTS } from "@/utils/mockData";
-import { TrendingUp, DollarSign, Package, Calendar, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { TrendingUp, DollarSign, Package, Calendar, ArrowUpRight, ArrowDownRight, BarChart3 } from "lucide-react";
+import { ForecastChart } from "@/components/charts/ForecastChart";
+import { MonthlyForecastChart } from "@/components/charts/MonthlyForecastChart";
 
 export default function AIForecastingPage() {
     // Generate forecast data for all products
@@ -41,11 +43,43 @@ export default function AIForecastingPage() {
     const revenueForecast = generateRevenueForecast();
     const demandForecast = generateDemandForecast();
 
-    // Calculate overall stats
+    // Calculate overall stats FIRST
     const totalCurrentRevenue = revenueForecast.reduce((sum, p) => sum + p.currentRevenue, 0);
     const totalForecastRevenue = revenueForecast.reduce((sum, p) => sum + p.forecastRevenue, 0);
     const totalCurrentDemand = demandForecast.reduce((sum, p) => sum + p.currentDemand, 0);
     const totalForecastDemand = demandForecast.reduce((sum, p) => sum + p.forecastDemand, 0);
+
+    // Generate monthly forecast data (uses totals calculated above)
+    const generateMonthlyRevenueForecast = () => {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return months.map((month, index) => {
+            const baseRevenue = totalCurrentRevenue / 12;
+            const seasonalFactor = 1 + Math.sin((index / 12) * Math.PI * 2) * 0.15;
+            const growthFactor = 1 + (index / 12) * 0.08;
+            return {
+                month,
+                current: Math.round(baseRevenue * seasonalFactor),
+                forecast: Math.round(baseRevenue * seasonalFactor * growthFactor)
+            };
+        });
+    };
+
+    const generateMonthlyDemandForecast = () => {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return months.map((month, index) => {
+            const baseDemand = totalCurrentDemand / 12;
+            const seasonalFactor = 1 + Math.sin((index / 12) * Math.PI * 2) * 0.12;
+            const growthFactor = 1 + (index / 12) * 0.06;
+            return {
+                month,
+                current: Math.round(baseDemand * seasonalFactor),
+                forecast: Math.round(baseDemand * seasonalFactor * growthFactor)
+            };
+        });
+    };
+
+    const monthlyRevenueData = generateMonthlyRevenueForecast();
+    const monthlyDemandData = generateMonthlyDemandForecast();
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 p-8">
@@ -64,67 +98,46 @@ export default function AIForecastingPage() {
                 </div>
             </div>
 
-            {/* Summary Cards */}
-            <div className="max-w-7xl mx-auto grid gap-6 md:grid-cols-2 mb-8">
+
+            {/* Monthly Forecast Line Graphs */}
+            <div className="max-w-7xl mx-auto mb-8 grid gap-6 md:grid-cols-2">
+                {/* Revenue Forecast */}
                 <Card className="glass-card border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
                     <CardHeader className="pb-3">
                         <CardTitle className="text-lg flex items-center gap-2">
                             <DollarSign className="h-5 w-5 text-green-600" />
-                            Revenue Forecast Summary
+                            Monthly Revenue Forecast
                         </CardTitle>
+                        <CardDescription>Revenue trends over 12 months</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl">
-                                <p className="text-xs text-slate-600 mb-1">Current Revenue</p>
-                                <p className="text-2xl font-bold text-slate-900">NPR {totalCurrentRevenue.toLocaleString()}</p>
-                            </div>
-                            <div className="bg-gradient-to-br from-green-50 to-teal-50 p-4 rounded-xl">
-                                <p className="text-xs text-slate-600 mb-1">Forecast Revenue</p>
-                                <p className="text-2xl font-bold text-green-600">NPR {totalForecastRevenue.toLocaleString()}</p>
-                            </div>
-                        </div>
-                        <div className="mt-3 flex items-center gap-2">
-                            {totalForecastRevenue > totalCurrentRevenue ? (
-                                <ArrowUpRight className="h-4 w-4 text-green-600" />
-                            ) : (
-                                <ArrowDownRight className="h-4 w-4 text-red-600" />
-                            )}
-                            <span className={`text-sm font-semibold ${totalForecastRevenue > totalCurrentRevenue ? 'text-green-600' : 'text-red-600'}`}>
-                                {Math.abs(Math.round(((totalForecastRevenue - totalCurrentRevenue) / totalCurrentRevenue) * 100))}% change expected
-                            </span>
-                        </div>
+                        <MonthlyForecastChart
+                            title=""
+                            data={monthlyRevenueData}
+                            dataKey1Label="Current Revenue"
+                            dataKey2Label="Forecast Revenue"
+                            yAxisLabel="Revenue (NPR)"
+                        />
                     </CardContent>
                 </Card>
 
+                {/* Demand Forecast */}
                 <Card className="glass-card border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
                     <CardHeader className="pb-3">
                         <CardTitle className="text-lg flex items-center gap-2">
-                            <Package className="h-5 w-5 text-purple-600" />
-                            Demand Forecast Summary
+                            <Package className="h-5 w-5 text-blue-600" />
+                            Monthly Demand Forecast
                         </CardTitle>
+                        <CardDescription>Demand trends over 12 months</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-xl">
-                                <p className="text-xs text-slate-600 mb-1">Current Demand</p>
-                                <p className="text-2xl font-bold text-slate-900">{totalCurrentDemand.toLocaleString()} units</p>
-                            </div>
-                            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-xl">
-                                <p className="text-xs text-slate-600 mb-1">Forecast Demand</p>
-                                <p className="text-2xl font-bold text-purple-600">{totalForecastDemand.toLocaleString()} units</p>
-                            </div>
-                        </div>
-                        <div className="mt-3 flex items-center gap-2">
-                            {totalForecastDemand > totalCurrentDemand ? (
-                                <ArrowUpRight className="h-4 w-4 text-green-600" />
-                            ) : (
-                                <ArrowDownRight className="h-4 w-4 text-red-600" />
-                            )}
-                            <span className={`text-sm font-semibold ${totalForecastDemand > totalCurrentDemand ? 'text-green-600' : 'text-red-600'}`}>
-                                {Math.abs(Math.round(((totalForecastDemand - totalCurrentDemand) / totalCurrentDemand) * 100))}% change expected
-                            </span>
-                        </div>
+                        <MonthlyForecastChart
+                            title=""
+                            data={monthlyDemandData}
+                            dataKey1Label="Current Demand"
+                            dataKey2Label="Forecast Demand"
+                            yAxisLabel="Units Sold"
+                        />
                     </CardContent>
                 </Card>
             </div>
@@ -172,8 +185,8 @@ export default function AIForecastingPage() {
                                             <p className="text-xs text-slate-500">{product.category}</p>
                                         </div>
                                         <div className={`flex items-center gap-1 px-2 py-1 rounded-lg ${product.trend === "up" ? "bg-green-100 text-green-700" :
-                                                product.trend === "down" ? "bg-red-100 text-red-700" :
-                                                    "bg-slate-100 text-slate-700"
+                                            product.trend === "down" ? "bg-red-100 text-red-700" :
+                                                "bg-slate-100 text-slate-700"
                                             }`}>
                                             {product.trend === "up" ? (
                                                 <ArrowUpRight className="h-3 w-3" />
@@ -241,8 +254,8 @@ export default function AIForecastingPage() {
                                             <p className="text-xs text-slate-500">{product.category}</p>
                                         </div>
                                         <div className={`flex items-center gap-1 px-2 py-1 rounded-lg ${product.changePercent > 0 ? "bg-green-100 text-green-700" :
-                                                product.changePercent < 0 ? "bg-red-100 text-red-700" :
-                                                    "bg-slate-100 text-slate-700"
+                                            product.changePercent < 0 ? "bg-red-100 text-red-700" :
+                                                "bg-slate-100 text-slate-700"
                                             }`}>
                                             {product.changePercent > 0 ? (
                                                 <ArrowUpRight className="h-3 w-3" />

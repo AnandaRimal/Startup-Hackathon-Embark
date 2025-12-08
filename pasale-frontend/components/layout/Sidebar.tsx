@@ -2,13 +2,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, LineChart, Settings, ShoppingBag, LogOut, TrendingUp } from "lucide-react";
+import { LayoutDashboard, LineChart, Settings, ShoppingBag, LogOut, TrendingUp, Lightbulb } from "lucide-react";
 import Image from "next/image";
 
 const navItems = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { name: "AI Predictions", href: "/predictions", icon: LineChart },
     { name: "AI Forecasting", href: "/forecasting", icon: TrendingUp },
+    { name: "Recommendations", href: "/recommendations", icon: Lightbulb },
     { name: "Products", href: "/products", icon: ShoppingBag },
     { name: "Settings", href: "#", icon: Settings },
 ];
@@ -25,7 +26,7 @@ export function Sidebar() {
                 <div className="mb-10 group cursor-pointer">
                     <div className="relative h-16 w-32 rounded-xl bg-white shadow-lg transform group-hover:scale-105 transition-transform duration-300 overflow-hidden p-2">
                         <Image
-                            src="/pasale-nepali-logo.jpg"
+                            src="/pasal-logo.png"
                             alt="Pasale Logo"
                             fill
                             className="object-contain"

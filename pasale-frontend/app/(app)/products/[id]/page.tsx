@@ -59,7 +59,7 @@ export default function ProductDetailsPage() {
                 </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-2">
                 <Card className="glass-card transform hover:scale-[1.02] transition-transform duration-300">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
                         <CardTitle className="text-sm font-medium text-slate-600">Total Sales</CardTitle>
@@ -68,18 +68,6 @@ export default function ProductDetailsPage() {
                     <CardContent>
                         <div className="text-2xl font-bold text-slate-900">{product.sales.toLocaleString()}</div>
                         <p className="text-xs text-muted-foreground">units sold lifetime</p>
-                    </CardContent>
-                </Card>
-                <Card className="glass-card transform hover:scale-[1.02] transition-transform duration-300">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-slate-600">Current Stock</CardTitle>
-                        <Tag className={`h-4 w-4 ${product.stock < 50 ? "text-red-500" : "text-green-500"}`} />
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold text-slate-900">{product.stock}</div>
-                        <p className={`text-xs ${product.stock < 50 ? "text-red-600 font-bold" : "text-muted-foreground"}`}>
-                            {product.stock < 50 ? "Low Stock Warning" : "Healthy Stock Levels"}
-                        </p>
                     </CardContent>
                 </Card>
                 <Card className="glass-card transform hover:scale-[1.02] transition-transform duration-300">

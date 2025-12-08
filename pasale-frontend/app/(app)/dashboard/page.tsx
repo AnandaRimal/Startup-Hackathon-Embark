@@ -13,7 +13,7 @@ export default function DashboardPage() {
             {/* Topbar removed - managed by layout */}
 
             {/* Stats Overview */}
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 <Card className="glass-card group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-semibold text-slate-700">Total Revenue</CardTitle>
@@ -48,18 +48,6 @@ export default function DashboardPage() {
                     <CardContent>
                         <div className="text-3xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">48</div>
                         <p className="text-xs text-purple-600 font-medium mt-1 flex items-center gap-1"><TrendingUp className="h-3 w-3" />+19% from last month</p>
-                    </CardContent>
-                </Card>
-                <Card className="glass-card group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                        <CardTitle className="text-sm font-semibold text-slate-700">Customer Sentiment</CardTitle>
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 group-hover:from-orange-200 group-hover:to-amber-200 transition-all duration-300">
-                            <TrendingUp className="h-5 w-5 text-orange-600" />
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">Positive</div>
-                        <p className="text-xs text-muted-foreground">+4% from last month</p>
                     </CardContent>
                 </Card>
             </div>
@@ -140,11 +128,10 @@ export default function DashboardPage() {
                                         <p className="text-xs text-slate-600 mt-1">{item.category}</p>
                                     </div>
                                     <div className="text-right">
-                                        <div className="flex items-center gap-2 justify-end mb-1">
+                                        <div className="flex items-center gap-2 justify-end">
                                             <TrendingDown className="h-4 w-4 text-red-500" />
                                             <span className="text-sm font-bold text-red-600">{item.daysInStock} days</span>
                                         </div>
-                                        <p className="text-xs text-slate-500">{item.stock} units in stock</p>
                                     </div>
                                 </div>
                             ))}
