@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, LineChart, Settings, ShoppingBag, LogOut, TrendingUp, Lightbulb, ChevronRight } from "lucide-react";
+import { LayoutDashboard, LineChart, Settings, ShoppingBag, LogOut, TrendingUp, Lightbulb, ChevronRight, FileText } from "lucide-react";
 
 const navItems = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -11,7 +11,8 @@ const navItems = [
     { name: "AI Forecasting", href: "/forecasting", icon: TrendingUp },
     { name: "Recommendations", href: "/recommendations", icon: Lightbulb },
     { name: "Products", href: "/products", icon: ShoppingBag },
-    { name: "Settings", href: "#", icon: Settings },
+    { name: "Reports", href: "/reports", icon: FileText },
+
 ];
 
 export function Sidebar() {

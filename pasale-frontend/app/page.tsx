@@ -16,9 +16,9 @@ export default function LandingPage() {
 
       {/* Navbar - Glass Morphism */}
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-gray-200/50">
-        <div className="flex items-center justify-between px-6 lg:px-8 py-5 max-w-7xl mx-auto w-full">
+        <div className="flex items-center justify-between px-6 lg:px-8 py-6 max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-3">
-            <div className="relative h-14 w-36">
+            <div className="relative h-24 w-64">
               <Image
                 src="/pasale.jpg"
                 alt="Pasale Logo"
@@ -28,19 +28,19 @@ export default function LandingPage() {
               />
             </div>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="#features" className="text-base font-semibold text-gray-600 hover:text-gray-900 transition-colors">Features</Link>
-            <Link href="#how-it-works" className="text-base font-semibold text-gray-600 hover:text-gray-900 transition-colors">How it works</Link>
-            <Link href="#pricing" className="text-base font-semibold text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
+          <div className="hidden md:flex items-center gap-12">
+            <Link href="#features" className="text-xl font-bold text-gray-600 hover:text-gray-900 transition-colors">Features</Link>
+            <Link href="#how-it-works" className="text-xl font-bold text-gray-600 hover:text-gray-900 transition-colors">How it works</Link>
+            <Link href="#pricing" className="text-xl font-bold text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-8">
             <Link href="/login">
-              <Button variant="ghost" className="text-base font-semibold">Log in</Button>
+              <Button variant="ghost" className="text-xl font-bold">Log in</Button>
             </Link>
-            <Link href="/dashboard">
-              <Button className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/25 text-base font-semibold">
+            <Link href="/login">
+              <Button className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/25 text-xl font-bold px-6 py-6">
                 Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-6 w-6" />
               </Button>
             </Link>
           </div>
@@ -53,139 +53,39 @@ export default function LandingPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-6xl w-full text-center mt-20 lg:mt-28 mb-24"
+          className="max-w-6xl w-full text-center mt-8 lg:mt-12 mb-8"
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 mb-6"
-          >
-            <Sparkles className="h-4 w-4 text-blue-600" />
-            <span className="text-sm font-semibold text-blue-700">AI-Powered Retail Intelligence</span>
-          </motion.div>
 
           {/* Headline */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
-            AI-Powered Sales Insights
-            <br />
-            <span className="relative inline-block mt-2">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                for Retail Shops
-              </span>
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full origin-left"
-              />
-            </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-green-600 leading-tight mb-4">
+            AI-Powered Retail Sales Insights
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-10 font-light">
-            Turn your shop's historical POS data into smart business decisions — with <span className="font-semibold text-gray-900">zero manual uploads</span>.
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-6 font-normal">
+            Get advanced AI insights and accurate forecasting. Subscribe to unlock data-driven growth and predictive analytics for your company.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Link href="/dashboard">
-              <Button size="lg" className="group rounded-full h-14 px-8 text-base font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300">
-                Get Started → Dashboard
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link href="#pricing">
-              <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-base font-semibold border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all">
-                View Pricing
-              </Button>
-            </Link>
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/login">
+                <Button className="group rounded-lg h-12 px-6 text-base font-bold bg-teal-600 hover:bg-teal-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                  Get Started - Dashboard
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="#pricing">
+                <Button variant="outline" className="rounded-lg h-12 px-6 text-base font-bold border-2 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all">
+                  View Pricing
+                </Button>
+              </Link>
+            </div>
           </div>
-
-          {/* Trust Badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto"
-          >
-            {[
-              { icon: Activity, text: "Real-time analytics" },
-              { icon: Brain, text: "AI demand prediction" },
-              { icon: Target, text: "Price impact forecasting" },
-              { icon: BarChart2, text: "Category insights" }
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
-                className="flex items-center gap-2 text-sm text-gray-700 bg-white/80 backdrop-blur-sm rounded-xl px-4 py-3 shadow-sm border border-gray-200/50 hover:shadow-md hover:border-gray-300/50 transition-all"
-              >
-                <feature.icon className="h-4 w-4 text-blue-600 flex-shrink-0" />
-                <span className="font-medium">{feature.text}</span>
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
 
-        {/* Value Proposition Section */}
-        <section className="w-full max-w-6xl mx-auto py-20 lg:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center space-y-8"
-          >
-            <div className="space-y-4">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Make Smarter Business Decisions{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-                  Automatically
-                </span>
-              </h2>
-              <p className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
-                पसले connects directly to your shop's internal sales database and analyzes every transaction using AI.{" "}
-                <span className="font-semibold text-gray-900">No files, no Excel, no POS uploads.</span>
-              </p>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-200/50 max-w-4xl mx-auto mt-12 hover:shadow-3xl transition-shadow duration-500">
-              <div className="flex items-center justify-center gap-2 mb-8">
-                <Zap className="h-6 w-6 text-yellow-500" />
-                <h3 className="text-xl lg:text-2xl font-bold text-gray-900">You get instant answers to:</h3>
-              </div>
-              <ul className="grid md:grid-cols-2 gap-4 text-left">
-                {[
-                  { text: "What sells the most", icon: TrendingUp },
-                  { text: "What's slowing down", icon: Activity },
-                  { text: "When your peak hours are", icon: BarChart2 },
-                  { text: "How price changes affect demand", icon: DollarSign },
-                  { text: "How much a new product may sell", icon: Package }
-                ].map((item, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
-                    className="flex items-start gap-3 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
-                  >
-                    <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                      <item.icon className="h-5 w-5 text-white" />
-                    </div>
-                    <span className="text-base lg:text-lg text-gray-700 font-medium mt-1.5">{item.text}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        </section>
-
         {/* Core Features Section */}
-        <section id="features" className="w-full max-w-7xl mx-auto py-20 lg:py-32 bg-gradient-to-b from-gray-50/50 to-white rounded-3xl">
+        <section id="features" className="w-full max-w-7xl mx-auto py-8 lg:py-12 bg-gradient-to-b from-gray-50/50 to-white rounded-3xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -193,23 +93,10 @@ export default function LandingPage() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="px-4 lg:px-8"
           >
-            <div className="text-center mb-16 lg:mb-20">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/50 mb-4"
-              >
-                <Sparkles className="h-4 w-4 text-blue-600" />
-                <span className="text-sm font-semibold text-blue-700">Powerful Features</span>
-              </motion.div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                Everything You Need to Grow
+            <div className="text-center mb-16 py-8">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-teal-600">
+                What Can You Get From Us
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-                Advanced AI-powered tools designed specifically for retail shops
-              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -249,6 +136,22 @@ export default function LandingPage() {
                 title="Shop & Location Insights"
                 desc="Compare performance across multiple Kathmandu locations in real-time."
               />
+            </div>
+
+            {/* Statistics */}
+            <div className="flex flex-wrap items-center justify-center gap-20 mt-24 mb-8">
+              <div className="flex items-center gap-4">
+                <Database className="h-10 w-10 text-teal-600" />
+                <span className="text-slate-900 font-bold text-3xl">50M+ Data Points</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <ShieldCheck className="h-10 w-10 text-teal-600" />
+                <span className="text-slate-900 font-bold text-3xl">24/7 Support</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <Activity className="h-10 w-10 text-teal-600" />
+                <span className="text-slate-900 font-bold text-3xl">99.9% Uptime</span>
+              </div>
             </div>
           </motion.div>
         </section>
@@ -341,9 +244,9 @@ export default function LandingPage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 max-w-6xl mx-auto">
               <PricingCard
-                tier="Basic Plan"
-                price="Free"
-                period=""
+                tier="Starter"
+                price="NPR 15,000"
+                period="/year"
                 badge=""
                 tagline="For small shopkeepers"
                 features={[
@@ -357,9 +260,9 @@ export default function LandingPage() {
                 ctaLink="/dashboard"
               />
               <PricingCard
-                tier="Pro Plan"
-                price="NPR 499"
-                period="/month"
+                tier="Growth"
+                price="NPR 50,000"
+                period="/year"
                 badge=""
                 tagline="Ideal for growing businesses"
                 popular={true}
@@ -377,8 +280,8 @@ export default function LandingPage() {
               />
               <PricingCard
                 tier="Enterprise"
-                price="Custom"
-                period=""
+                price="NPR 1,500,000"
+                period="/year"
                 badge=""
                 tagline="For large retailers"
                 features={[
@@ -424,21 +327,26 @@ export default function LandingPage() {
                 <span className="text-sm font-semibold text-yellow-700">Customer Stories</span>
               </motion.div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                Loved by Retailers Across Nepal
+                Loved by <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Startups and FMCG</span> Across Nepal
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">See how पसले is transforming retail businesses</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <TestimonialCard
-                quote="पसले helped us predict stock-outs before they happened."
-                author="Madan Grocery"
+                quote="पसले's demand forecasting helped us optimize inventory across 200+ stores in Nepal."
+                author="Unilever Nepal"
                 location="Kathmandu"
               />
               <TestimonialCard
-                quote="AI price simulations increased our monthly revenue by 12%."
-                author="Bhatta Traders"
-                location="Bhaktapur"
+                quote="The AI-driven price optimization increased our profit margins by 18% within 3 months."
+                author="Unilever Nepal"
+                location="Distribution Center"
+              />
+              <TestimonialCard
+                quote="As a startup, पसले gave us enterprise-level insights. Sales predictions are 95% accurate!"
+                author="FreshMart Organics"
+                location="Lalitpur"
               />
             </div>
           </motion.div>
@@ -476,7 +384,7 @@ export default function LandingPage() {
                 No data uploads. पसले uses your existing internal database.<br />
                 <span className="font-semibold text-white">Get started in under 5 minutes.</span>
               </p>
-              <Link href="/dashboard">
+              <Link href="/login">
                 <Button size="lg" className="group rounded-full h-16 px-10 text-lg font-semibold bg-white text-blue-600 hover:bg-gray-50 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300">
                   Get Started — It's Free
                   <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />

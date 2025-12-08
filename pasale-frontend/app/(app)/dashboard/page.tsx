@@ -28,13 +28,7 @@ export default function DashboardPage() {
             period: "vs last month",
             positive: true
         },
-        {
-            label: "Avg Order Value",
-            value: "NPR 19.24",
-            change: "+5.2%",
-            period: "vs last month",
-            positive: true
-        }
+
     ];
 
     return (
@@ -54,7 +48,7 @@ export default function DashboardPage() {
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {stats.map((stat, index) => (
                         <div
                             key={index}

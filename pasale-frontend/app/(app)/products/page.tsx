@@ -33,8 +33,8 @@ export default function ProductsPage() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                        <h1 className="text-3xl font-bold text-slate-900">Products Catalog</h1>
-                        <p className="text-base text-slate-600 mt-1">Manage and analyze your inventory performance</p>
+                        <h1 className="text-3xl font-bold text-slate-900">Product Insights</h1>
+                        <p className="text-base text-slate-600 mt-1">Check insights of all products</p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3">
                         <div className="relative w-full sm:w-[300px]">

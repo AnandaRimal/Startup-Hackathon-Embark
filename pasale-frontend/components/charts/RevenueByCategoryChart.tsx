@@ -1,6 +1,14 @@
 "use client"
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { REVENUE_BY_CATEGORY } from '@/utils/mockData';
+
+const KIRAN_STORE_CATEGORIES = [
+    { name: "Grains & Pulses", value: 12500, color: "#4F46E5", percentage: 35 },
+    { name: "Snacks", value: 8400, color: "#06B6D4", percentage: 22 },
+    { name: "Fruits & Vegetables", value: 6200, color: "#10B981", percentage: 18 },
+    { name: "Personal Care", value: 4500, color: "#F59E0B", percentage: 12 },
+    { name: "Household", value: 3100, color: "#EC4899", percentage: 8 },
+    { name: "Dairy", value: 1800, color: "#8B5CF6", percentage: 5 },
+];
 
 export function RevenueByCategoryChart() {
     return (
@@ -9,7 +17,7 @@ export function RevenueByCategoryChart() {
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                         <Pie
-                            data={REVENUE_BY_CATEGORY}
+                            data={KIRAN_STORE_CATEGORIES}
                             cx="50%"
                             cy="50%"
                             labelLine={false}
@@ -18,7 +26,7 @@ export function RevenueByCategoryChart() {
                             fill="#8884d8"
                             dataKey="value"
                         >
-                            {REVENUE_BY_CATEGORY.map((entry, index) => (
+                            {KIRAN_STORE_CATEGORIES.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={entry.color} />
                             ))}
                         </Pie>
@@ -43,7 +51,7 @@ export function RevenueByCategoryChart() {
 
             {/* Legend */}
             <div className="mt-4 space-y-2">
-                {REVENUE_BY_CATEGORY.map((category) => (
+                {KIRAN_STORE_CATEGORIES.map((category) => (
                     <div key={category.name} className="flex items-center justify-between px-2 py-1.5 hover:bg-slate-50 rounded-lg transition-colors">
                         <div className="flex items-center gap-3">
                             <div
