@@ -1,105 +1,695 @@
 "use client"
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart2, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, BarChart2, Zap, ShieldCheck, TrendingUp, DollarSign, Package, Store, Database, Brain, Check, Star, Users, Sparkles, Activity, Target } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-pastel-blue via-white to-pastel-pink/30 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-white relative overflow-hidden">
 
-      {/* Decorative Blobs */}
-      <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] rounded-full bg-pastel-purple/40 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-pastel-green/40 blur-[100px] pointer-events-none" />
+      {/* Subtle Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-indigo-50/20 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-blue-100/20 to-indigo-100/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-purple-100/20 to-pink-100/10 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Navbar */}
-      <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full z-10">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-xl">P</div>
-          <span className="text-2xl font-bold tracking-tight text-foreground">Pasale</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <Link href="/login" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Log in</Link>
-          <Link href="/login">
-            <Button className="rounded-full shadow-lg hover:shadow-primary/20 transition-all">Get Started</Button>
-          </Link>
+      {/* Navbar - Glass Morphism */}
+      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 border-b border-gray-200/50">
+        <div className="flex items-center justify-between px-6 lg:px-8 py-5 max-w-7xl mx-auto w-full">
+          <div className="flex items-center gap-3">
+            <div className="relative h-14 w-36">
+              <Image
+                src="/pasale.jpg"
+                alt="Pasale Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="#features" className="text-base font-semibold text-gray-600 hover:text-gray-900 transition-colors">Features</Link>
+            <Link href="#how-it-works" className="text-base font-semibold text-gray-600 hover:text-gray-900 transition-colors">How it works</Link>
+            <Link href="#pricing" className="text-base font-semibold text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link href="/login">
+              <Button variant="ghost" className="text-base font-semibold">Log in</Button>
+            </Link>
+            <Link href="/dashboard">
+              <Button className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/25 text-base font-semibold">
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 flex flex-col items-center justify-center text-center px-4 z-10 mt-10">
+      <main className="flex-1 flex flex-col items-center px-4 lg:px-8 z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl space-y-6"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-6xl w-full text-center mt-20 lg:mt-28 mb-24"
         >
-          <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-800">
-            <Zap className="mr-1 h-3.5 w-3.5 fill-blue-800" />
-            AI-Powered Retail Intelligence
-          </div>
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 mb-6"
+          >
+            <Sparkles className="h-4 w-4 text-blue-600" />
+            <span className="text-sm font-semibold text-blue-700">AI-Powered Retail Intelligence</span>
+          </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-            Unlock Future Sales <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Before They Happen</span>
+          {/* Headline */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
+            AI-Powered Sales Insights
+            <br />
+            <span className="relative inline-block mt-2">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                for Retail Shops
+              </span>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full origin-left"
+              />
+            </span>
           </h1>
 
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Pasale gives retailers the power of fortune-telling. Predict sales impact, optimize pricing, and spot trends with simple AI tools.
+          {/* Subheadline */}
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-10 font-light">
+            Turn your shop's historical POS data into smart business decisions — with <span className="font-semibold text-gray-900">zero manual uploads</span>.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link href="/login">
-              <Button size="lg" className="rounded-full h-14 px-8 text-lg shadow-xl shadow-blue-500/20 hover:scale-105 transition-transform">
-                Start Predicting Now <ArrowRight className="ml-2 h-5 w-5" />
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <Link href="/dashboard">
+              <Button size="lg" className="group rounded-full h-14 px-8 text-base font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300">
+                Get Started → Dashboard
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-lg border-2 hover:bg-white/50">
-              View Demo
-            </Button>
+            <Link href="#pricing">
+              <Button variant="outline" size="lg" className="rounded-full h-14 px-8 text-base font-semibold border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all">
+                View Pricing
+              </Button>
+            </Link>
           </div>
+
+          {/* Trust Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto"
+          >
+            {[
+              { icon: Activity, text: "Real-time analytics" },
+              { icon: Brain, text: "AI demand prediction" },
+              { icon: Target, text: "Price impact forecasting" },
+              { icon: BarChart2, text: "Category insights" }
+            ].map((feature, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
+                className="flex items-center gap-2 text-sm text-gray-700 bg-white/80 backdrop-blur-sm rounded-xl px-4 py-3 shadow-sm border border-gray-200/50 hover:shadow-md hover:border-gray-300/50 transition-all"
+              >
+                <feature.icon className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                <span className="font-medium">{feature.text}</span>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
 
-        {/* Feature Cards Preview */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full"
-        >
-          <FeatureCard
-            icon={<BarChart2 className="h-6 w-6 text-indigo-500" />}
-            title="Sales Forecasting"
-            desc="Accurate predictions based on historical patterns."
-          />
-          <FeatureCard
-            icon={<Zap className="h-6 w-6 text-yellow-500" />}
-            title="Price Impact"
-            desc="Simulate how price changes affect your bottom line."
-          />
-          <FeatureCard
-            icon={<ShieldCheck className="h-6 w-6 text-green-500" />}
-            title="Inventory Risk"
-            desc="Identify slow-moving stock before it becomes a loss."
-          />
-        </motion.div>
+        {/* Value Proposition Section */}
+        <section className="w-full max-w-6xl mx-auto py-20 lg:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center space-y-8"
+          >
+            <div className="space-y-4">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                Make Smarter Business Decisions{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+                  Automatically
+                </span>
+              </h2>
+              <p className="text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+                Pasale connects directly to your shop's internal sales database and analyzes every transaction using AI.{" "}
+                <span className="font-semibold text-gray-900">No files, no Excel, no POS uploads.</span>
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-200/50 max-w-4xl mx-auto mt-12 hover:shadow-3xl transition-shadow duration-500">
+              <div className="flex items-center justify-center gap-2 mb-8">
+                <Zap className="h-6 w-6 text-yellow-500" />
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-900">You get instant answers to:</h3>
+              </div>
+              <ul className="grid md:grid-cols-2 gap-4 text-left">
+                {[
+                  { text: "What sells the most", icon: TrendingUp },
+                  { text: "What's slowing down", icon: Activity },
+                  { text: "When your peak hours are", icon: BarChart2 },
+                  { text: "How price changes affect demand", icon: DollarSign },
+                  { text: "How much a new product may sell", icon: Package }
+                ].map((item, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="flex items-start gap-3 p-4 rounded-xl hover:bg-gray-50 transition-colors group"
+                  >
+                    <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <item.icon className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-base lg:text-lg text-gray-700 font-medium mt-1.5">{item.text}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Core Features Section */}
+        <section id="features" className="w-full max-w-7xl mx-auto py-20 lg:py-32 bg-gradient-to-b from-gray-50/50 to-white rounded-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="px-4 lg:px-8"
+          >
+            <div className="text-center mb-16 lg:mb-20">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/50 mb-4"
+              >
+                <Sparkles className="h-4 w-4 text-blue-600" />
+                <span className="text-sm font-semibold text-blue-700">Powerful Features</span>
+              </motion.div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                Everything You Need to Grow
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+                Advanced AI-powered tools designed specifically for retail shops
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              <FeatureCard
+                icon={<Brain className="h-7 w-7" />}
+                gradient="from-purple-500 to-indigo-600"
+                title="AI Sales Predictions"
+                desc="Forecast daily, weekly, and monthly sales using advanced machine learning algorithms."
+              />
+              <FeatureCard
+                icon={<DollarSign className="h-7 w-7" />}
+                gradient="from-green-500 to-emerald-600"
+                title="Price–Demand Impact"
+                desc="Test new prices and instantly see predicted quantity, revenue, and price sensitivity."
+              />
+              <FeatureCard
+                icon={<Package className="h-7 w-7" />}
+                gradient="from-blue-500 to-cyan-600"
+                title="New Product Forecast"
+                desc="Predict expected sales for new items using similar product trends and patterns."
+              />
+              <FeatureCard
+                icon={<BarChart2 className="h-7 w-7" />}
+                gradient="from-indigo-500 to-purple-600"
+                title="Dashboard Analytics"
+                desc="Track sales, categories, shop performance, heatmaps, and emerging trends."
+              />
+              <FeatureCard
+                icon={<TrendingUp className="h-7 w-7" />}
+                gradient="from-orange-500 to-red-600"
+                title="Best Sellers & Slow Movers"
+                desc="Identify what to restock, what to promote, and what needs discounting."
+              />
+              <FeatureCard
+                icon={<Store className="h-7 w-7" />}
+                gradient="from-pink-500 to-rose-600"
+                title="Shop & Location Insights"
+                desc="Compare performance across multiple Kathmandu locations in real-time."
+              />
+            </div>
+          </motion.div>
+        </section>
+
+        {/* How It Works Section */}
+        <section id="how-it-works" className="w-full max-w-7xl mx-auto py-20 lg:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="px-4 lg:px-8"
+          >
+            <div className="text-center mb-16 lg:mb-20">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-200/50 mb-4"
+              >
+                <Zap className="h-4 w-4 text-indigo-600" />
+                <span className="text-sm font-semibold text-indigo-700">Simple Process</span>
+              </motion.div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                How Pasale Works
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
+                Three simple steps to transform your retail business
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
+              {/* Connection Lines */}
+              <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-indigo-200 to-purple-200" style={{ width: 'calc(100% - 6rem)', left: '3rem' }} />
+              
+              <HowItWorksCard
+                step="1"
+                title="Your POS data stays internal"
+                description="We connect securely to your internal PostgreSQL sales database with enterprise-grade encryption."
+                icon={<Database className="h-10 w-10" />}
+                gradient="from-blue-500 to-cyan-600"
+                delay={0}
+              />
+              <HowItWorksCard
+                step="2"
+                title="Pasale analyzes everything"
+                description="AI models read your sales patterns, pricing history, and category behavior in real-time."
+                icon={<Brain className="h-10 w-10" />}
+                gradient="from-indigo-500 to-purple-600"
+                delay={0.2}
+              />
+              <HowItWorksCard
+                step="3"
+                title="You get instant results"
+                description="Insights appear on your dashboard — no uploads, no manual work, just smart decisions."
+                icon={<Zap className="h-10 w-10" />}
+                gradient="from-purple-500 to-pink-600"
+                delay={0.4}
+              />
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="w-full max-w-7xl mx-auto py-20 lg:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="px-4 lg:px-8"
+          >
+            <div className="text-center mb-16 lg:mb-20">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-200/50 mb-4"
+              >
+                <DollarSign className="h-4 w-4 text-green-600" />
+                <span className="text-sm font-semibold text-green-700">Simple Pricing</span>
+              </motion.div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                Plans That Scale With You
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">Choose the perfect plan for your business size and needs</p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 max-w-6xl mx-auto">
+              <PricingCard
+                tier="Basic Plan"
+                price="Free"
+                period=""
+                badge=""
+                tagline="For small shopkeepers"
+                features={[
+                  "Dashboard access",
+                  "Daily sales summary",
+                  "Category insights",
+                  "Top 5 best sellers",
+                  "Email support"
+                ]}
+                ctaText="Get Started"
+                ctaLink="/dashboard"
+              />
+              <PricingCard
+                tier="Pro Plan"
+                price="NPR 499"
+                period="/month"
+                badge=""
+                tagline="Ideal for growing businesses"
+                popular={true}
+                features={[
+                  "Everything in Free",
+                  "AI demand forecasting",
+                  "Price–demand modeling",
+                  "New product predictions",
+                  "Revenue projections",
+                  "Detailed heatmaps",
+                  "Unlimited access"
+                ]}
+                ctaText="Start Pro Trial"
+                ctaLink="/dashboard"
+              />
+              <PricingCard
+                tier="Enterprise"
+                price="Custom"
+                period=""
+                badge=""
+                tagline="For large retailers"
+                features={[
+                  "Custom dashboards",
+                  "API integration",
+                  "Multi-shop analytics",
+                  "Dedicated support",
+                  "Priority features",
+                  "Custom training"
+                ]}
+                ctaText="Contact Sales"
+                ctaLink="/dashboard"
+              />
+            </div>
+            <div className="text-center mt-12">
+              <Link href="#pricing">
+                <Button variant="outline" size="lg" className="rounded-full">
+                  Compare Plans
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="w-full max-w-7xl mx-auto py-20 lg:py-32 bg-gradient-to-b from-white to-gray-50/50 rounded-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="px-4 lg:px-8"
+          >
+            <div className="text-center mb-16 lg:mb-20">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-50 border border-yellow-200/50 mb-4"
+              >
+                <Star className="h-4 w-4 text-yellow-600" />
+                <span className="text-sm font-semibold text-yellow-700">Customer Stories</span>
+              </motion.div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                Loved by Retailers Across Nepal
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">See how Pasale is transforming retail businesses</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <TestimonialCard
+                quote="Pasale helped us predict stock-outs before they happened."
+                author="Madan Grocery"
+                location="Kathmandu"
+              />
+              <TestimonialCard
+                quote="AI price simulations increased our monthly revenue by 12%."
+                author="Bhatta Traders"
+                location="Bhaktapur"
+              />
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="w-full max-w-7xl mx-auto py-20 lg:py-32 px-4 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-3xl lg:rounded-[2.5rem] p-12 lg:p-20 text-center shadow-2xl"
+          >
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+            
+            <div className="relative z-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6"
+              >
+                <Sparkles className="h-4 w-4 text-white" />
+                <span className="text-sm font-semibold text-white">Start Free Today</span>
+              </motion.div>
+              
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Ready to Grow Your Shop<br />with AI?
+              </h2>
+              <p className="text-lg lg:text-xl text-blue-100 mb-10 max-w-2xl mx-auto font-light">
+                No data uploads. Pasale uses your existing internal database.<br />
+                <span className="font-semibold text-white">Get started in under 5 minutes.</span>
+              </p>
+              <Link href="/dashboard">
+                <Button size="lg" className="group rounded-full h-16 px-10 text-lg font-semibold bg-white text-blue-600 hover:bg-gray-50 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300">
+                  Get Started — It's Free
+                  <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <p className="text-sm text-blue-100 mt-6">No credit card required  •  Setup in 5 minutes  •  Cancel anytime</p>
+            </div>
+          </motion.div>
+        </section>
       </main>
 
-      <footer className="py-8 text-center text-sm text-muted-foreground">
-        © 2024 Pasale Inc. No database, just magic.
+      {/* Footer */}
+      <footer className="relative z-10 border-t border-gray-200 bg-white/50 backdrop-blur-sm mt-20">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            {/* Brand */}
+            <div className="md:col-span-2">
+              <div className="relative h-12 w-32 mb-4">
+                <Image
+                  src="/pasale.jpg"
+                  alt="Pasale Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-base text-gray-600 mb-4 max-w-sm">
+                AI-powered retail intelligence for Nepal. Transform your POS data into actionable insights.
+              </p>
+              <div className="flex gap-4">
+                <Link href="#" className="h-11 w-11 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors">
+                  <span className="sr-only">Twitter</span>
+                  <svg className="h-5 w-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Links */}
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4 text-base">Product</h4>
+              <ul className="space-y-3">
+                <li><Link href="#features" className="text-base text-gray-600 hover:text-gray-900 transition-colors">Features</Link></li>
+                <li><Link href="#pricing" className="text-base text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link></li>
+                <li><Link href="/dashboard" className="text-base text-gray-600 hover:text-gray-900 transition-colors">Dashboard</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4 text-base">Company</h4>
+              <ul className="space-y-3">
+                <li><Link href="#" className="text-base text-gray-600 hover:text-gray-900 transition-colors">About</Link></li>
+                <li><Link href="#" className="text-base text-gray-600 hover:text-gray-900 transition-colors">Contact</Link></li>
+                <li><Link href="/login" className="text-base text-gray-600 hover:text-gray-900 transition-colors">Login</Link></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="pt-8 border-t border-gray-200">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-base text-gray-600">
+                © 2024 Pasale Inc. All rights reserved.
+              </p>
+              <div className="flex gap-6 text-base">
+                <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Privacy</Link>
+                <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Terms</Link>
+                <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Security</Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
 }
 
-function FeatureCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+function FeatureCard({ icon, title, desc, gradient }: { icon: React.ReactNode, title: string, desc: string, gradient: string }) {
   return (
-    <div className="p-6 rounded-2xl bg-white/60 backdrop-blur-md border border-white/50 shadow-sm hover:shadow-md transition-all text-left">
-      <div className="mb-4 h-12 w-12 rounded-lg bg-white shadow-sm flex items-center justify-center">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="group relative p-8 rounded-2xl bg-white border border-gray-200/50 shadow-sm hover:shadow-xl hover:border-gray-300 transition-all duration-300 hover:-translate-y-1"
+    >
+      <div className={`mb-5 h-14 w-14 rounded-xl bg-gradient-to-br ${gradient} shadow-lg flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
         {icon}
       </div>
-      <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
-      <p className="text-slate-500 leading-relaxed">{desc}</p>
-    </div>
+      <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+      <p className="text-gray-600 leading-relaxed">{desc}</p>
+      
+      {/* Hover Effect */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/0 to-indigo-50/0 group-hover:from-blue-50/50 group-hover:to-indigo-50/30 transition-all duration-300 pointer-events-none" />
+    </motion.div>
+  )
+}
+
+function HowItWorksCard({ step, title, description, icon, gradient, delay }: { step: string, title: string, description: string, icon: React.ReactNode, gradient: string, delay: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="relative p-8 lg:p-10 rounded-2xl bg-white border border-gray-200/50 shadow-lg hover:shadow-xl text-center group transition-all duration-300 hover:-translate-y-2"
+    >
+      <div className={`absolute -top-6 left-1/2 -translate-x-1/2 h-14 w-14 rounded-2xl bg-gradient-to-br ${gradient} text-white flex items-center justify-center text-2xl font-bold shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+        {step}
+      </div>
+      <div className="mt-6 mb-6 flex justify-center text-white">
+        <div className={`p-4 rounded-xl bg-gradient-to-br ${gradient} shadow-lg`}>
+          {icon}
+        </div>
+      </div>
+      <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">{title}</h3>
+      <p className="text-gray-600 leading-relaxed">{description}</p>
+    </motion.div>
+  )
+}
+
+function PricingCard({ tier, price, period, badge, tagline, features, ctaText, ctaLink, popular }: {
+  tier: string,
+  price: string,
+  period: string,
+  badge: string,
+  tagline: string,
+  features: string[],
+  ctaText: string,
+  ctaLink: string,
+  popular?: boolean
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={`relative p-8 lg:p-10 rounded-3xl bg-white border-2 shadow-lg hover:shadow-2xl transition-all duration-300 ${
+        popular 
+          ? 'border-indigo-500 ring-4 ring-indigo-100 scale-105 lg:scale-110' 
+          : 'border-gray-200 hover:border-gray-300'
+      }`}
+    >
+      {popular && (
+        <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+          Most Popular
+        </div>
+      )}
+      <div className="text-center mb-8">
+        {badge && <div className="text-5xl mb-4">{badge}</div>}
+        <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{tier}</h3>
+        <p className="text-sm text-gray-600 mb-6">{tagline}</p>
+        <div className="mb-6">
+          <span className="text-5xl lg:text-6xl font-bold text-gray-900">{price}</span>
+          {period && <span className="text-lg text-gray-600 font-medium">{period}</span>}
+        </div>
+      </div>
+      <ul className="space-y-4 mb-8">
+        {features.map((feature, i) => (
+          <motion.li
+            key={i}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.3 }}
+            className="flex items-start gap-3"
+          >
+            <div className="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Check className="h-4 w-4 text-green-600" />
+            </div>
+            <span className="text-gray-700 font-medium">{feature}</span>
+          </motion.li>
+        ))}
+      </ul>
+      <Link href={ctaLink}>
+        <Button className={`w-full rounded-full h-12 font-semibold transition-all duration-300 ${
+          popular 
+            ? 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shadow-lg shadow-indigo-500/30' 
+            : 'bg-gray-900 hover:bg-gray-800'
+        }`}>
+          {ctaText}
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </Link>
+    </motion.div>
+  )
+}
+
+function TestimonialCard({ quote, author, location }: { quote: string, author: string, location: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="group p-8 lg:p-10 rounded-2xl bg-white border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+    >
+      <div className="flex gap-1 mb-6">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+        ))}
+      </div>
+      <p className="text-lg lg:text-xl text-gray-700 mb-8 leading-relaxed">"{quote}"</p>
+      <div className="flex items-center gap-4">
+        <div className="h-14 w-14 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-110 transition-transform">
+          {author[0]}
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 text-lg">{author}</p>
+          <p className="text-sm text-gray-600 flex items-center gap-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+            {location}
+          </p>
+        </div>
+      </div>
+    </motion.div>
   )
 }

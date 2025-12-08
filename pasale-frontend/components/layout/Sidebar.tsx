@@ -3,7 +3,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, LineChart, Settings, ShoppingBag, LogOut, TrendingUp, Lightbulb } from "lucide-react";
-import Image from "next/image";
 
 const navItems = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -24,14 +23,11 @@ export function Sidebar() {
 
             <div className="relative z-10">
                 <div className="mb-10 group cursor-pointer">
-                    <div className="relative h-16 w-32 rounded-xl bg-white shadow-lg transform group-hover:scale-105 transition-transform duration-300 overflow-hidden p-2">
-                        <Image
-                            src="/pasal-logo.png"
-                            alt="Pasale Logo"
-                            fill
-                            className="object-contain"
-                            priority
-                        />
+                    <div className="flex items-center gap-2">
+                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white flex items-center justify-center font-bold text-xl shadow-lg">
+                            P
+                        </div>
+                        <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Pasale</span>
                     </div>
                 </div>
 
