@@ -563,26 +563,6 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-## 👥 Team
-
-**Pasale Team**
-- Product Lead: [Name]
-- Tech Lead: [Name]
-- ML Engineer: [Name]
-- Full Stack Developer: [Name]
-
----
-
-## 📞 Contact
-
-- **Email**: info@pasale.com.np
-- **Website**: https://pasale.com.np
-- **LinkedIn**: [Pasale LinkedIn]
-- **Twitter**: [@PasaleNepal]
-
----
 
 ## 🙏 Acknowledgments
 
